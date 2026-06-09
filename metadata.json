@@ -1,0 +1,8 @@
+{
+  "name": "Remix: Mi Cuaderno Digital Rocha",
+  "description": "Plataforma educativa interactiva con un panel integral de clases, gestor de tareas y asistente de Inteligencia Artificial integrado (Bien).",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

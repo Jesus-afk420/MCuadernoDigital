@@ -1,0 +1,100 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "Perfil del usuario estudiante o docente en el ecosistema escolar",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Nombre completo del usuario"
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "Correo electrónico registrado"
+        },
+        "role": {
+          "type": "string",
+          "enum": ["alumno", "profesor"],
+          "description": "Rol con el que accede a la plataforma"
+        }
+      },
+      "required": ["name", "email", "role"]
+    },
+    "ClassItem": {
+      "title": "ClassItem",
+      "description": "Colección de aulas o materias escolares",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Identificador único de la clase"
+        },
+        "name": {
+          "type": "string",
+          "description": "Nombre de la materia, por ejemplo Cálculo Diferencial"
+        },
+        "subject": {
+          "type": "string",
+          "description": "Área temática de estudio"
+        },
+        "code": {
+          "type": "string",
+          "description": "Código alfanumérico de acceso de 6 dígitos"
+        },
+        "teacherName": {
+          "type": "string",
+          "description": "Nombre del docente que dicta la materia"
+        },
+        "studentCount": {
+          "type": "number",
+          "description": "Cantidad oficial de alumnos asignados"
+        }
+      },
+      "required": ["id", "name", "subject", "code", "teacherName", "studentCount"]
+    },
+    "Task": {
+      "title": "Task",
+      "description": "Tareas asignadas a una materia específica",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Identificador de la tarea"
+        },
+        "title": {
+          "type": "string",
+          "description": "Título explicativo del entregable"
+        },
+        "dueDate": {
+          "type": "string",
+          "description": "Fecha límite de entrega en formato YYYY-MM-DD"
+        },
+        "submitted": {
+          "type": "boolean",
+          "description": "Indica si fue entregado por el estudiante"
+        },
+        "score": {
+          "type": "number",
+          "description": "Calificación asignada del 0 al 100"
+        }
+      },
+      "required": ["id", "title", "dueDate", "submitted"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "Datos de identificación personal de los miembros de la escuela"
+    },
+    "/classes/{classId}": {
+      "schema": "ClassItem",
+      "description": "Listado general de materias administrables"
+    },
+    "/classes/{classId}/tasks/{taskId}": {
+      "schema": "Task",
+      "description": "Asignaciones y estatus de entrega por clase"
+    }
+  }
+}

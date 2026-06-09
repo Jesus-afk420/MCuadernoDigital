@@ -1,0 +1,26 @@
+name: cuaderno_digital_app
+description: "Ecosistema Móvil para Mi Cuaderno Digital con Sincronización Firebase."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.5
+  
+  # Paquetes oficiales para conectar con Firebase Cloud y APIs HTTP
+  firebase_core: ^2.24.2
+  cloud_firestore: ^4.14.0
+  firebase_auth: ^4.16.0
+  http: ^1.2.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
